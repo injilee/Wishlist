@@ -1,5 +1,5 @@
 # Wishlist
  A site where you can make and share your wishlist.
 
-# 👉 Link Here
+# Link Here
 https://injilee.github.io/Wishlist/
