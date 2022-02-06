@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    font-family:'S-CoreDream-3Light', 'Sacramento', 'Barlow', cursive, sans-serif;
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    word-break:break-all;
+}
+ul, ol, li{
+    list-style:none;
+}
+a{
+    text-decoration:none;
+    font-family:'Barlow';
+}
+
+
+body{
+    margin:0;
+    background-color: rgba(247, 247, 247, 0.911);
+}
+main{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+section{
+    width:420px;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    border-radius:10px;
+    background-color: #fff;
+    text-align:center;
+    border:1px solid gainsboro;
+}
+
+/* title */
+.title{
+    width:100%;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    background: rgb(223,152,152);
+    background: linear-gradient(322deg, rgba(223,152,152,0.8) 0%, rgba(222,224,140,0.8) 30%, rgba(168, 173, 243, 0.8) 59%, rgba(214, 124, 214, 0.8) 100%);
+}
+.title h1{
+    font-family:'Sacramento';
+    width:100%;
+    font-size:35px;
+    padding:10px 0 0;
+}
+
+/* list */
+.list{
+    width:100%;
+    height:380px;
+    background: rgb(247, 235, 235);
+    overflow:scroll;
+}
+.list::-webkit-scrollbar{
+    display:none;
+}
+.list .list-content{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    font-family:'Barlow';
+    font-size:18px;
+    padding:15px;
+}
+.list .list-content li{
+    font-size:15px;
+    padding:15px 0;
+    text-overflow:ellipsis;
+    border-bottom:1px solid grey;
+}
+.list .list-content li:last-child{
+    border-bottom:none;
+}
+.list .list-content li > button{
+    font-size:17px;
+    margin:0 7px;
+    background-color:transparent;
+    border:none;
+    cursor:pointer;
+}
+
+/* form */
+.form{
+    width:100%;
+}
+.form input{
+    width:100%;
+    display:block;
+    padding:10px;
+    border-radius:3px;
+    border:none;
+    /* background-color: #4987; */
+}
+.form input:focus{
+    outline:none;
+}
+.btn{
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+    padding:10px;
+    background: rgb(223,152,152);
+    background: linear-gradient(322deg, rgba(223,152,152,0.8) 0%, rgba(222,224,140,0.8) 30%, rgba(168, 173, 243, 0.8) 59%, rgba(214, 124, 214, 0.8) 100%);
+}
+.btn button{
+    display:block;
+    width:30px;
+    height:30px;
+    margin:0 auto;
+    background-color: #fff;
+    border:1px solid rgba(241, 241, 241, 0.467);
+    border-radius:50%;
+    cursor:pointer;
+}
+.btn button:active{
+    transform:translateY(2px);
+    box-shadow:2px 5px 10px #b1b1b1;
+}
+.btn i{
+    padding: 0;
+    font-size:16px;
+    color:rgb(236, 133, 133);
+}
