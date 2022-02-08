@@ -1,17 +1,17 @@
 'use strict';
 
+const list = document.querySelector('section .list');
 const ul = document.querySelector('section .list .list-content');
-const form = document.querySelector('.form');
-const input = form.querySelector('input');
-const addListBtn = form.querySelector('.btn button');
+const input = document.querySelector('input');
+const addListBtn = document.querySelector('.btn button');
 
-function removeListHandler(event){
-    const li = event.target.parentElement.parentElement;
-    li.remove();
-};
+function pushListHandler(){
+    const text = input.value;
+    if(text === ""){
+        input.focus();
+        return;
+    }
 
-function pushListHandler(event){
-    event.preventDefault();
     const li = document.createElement('li');
     const btn = document.createElement('button');
     ul.appendChild(li);
@@ -19,16 +19,20 @@ function pushListHandler(event){
     li.textContent = wishValue;
     li.appendChild(btn);
     btn.innerHTML = '<i class="far fa-minus-square"></i>';
-    // console.log(btn);
-    btn.addEventListener('click', removeListHandler);
+    btn.addEventListener('click', () =>{
+        li.remove();
+    });
+    input.value = "";
+    input.focus();
+    list.scrollIntoView({block: "end"});
 };
 
-form.addEventListener('submit', (e)=> {
-    pushListHandler(e);
-    input.value = null;
+addListBtn.addEventListener('click', ()=> {
+    pushListHandler();
 });
 
-addListBtn.addEventListener('click', (e)=> {
-    pushListHandler(e);
-    input.value = null;
+input.addEventListener('keypress', event => {
+    if(event.key === 'Enter'){
+        pushListHandler();
+    }
 });
