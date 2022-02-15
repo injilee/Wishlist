@@ -20,15 +20,14 @@ function pushList(){
 let id = 0;
 function createItem(text){
     const li = document.createElement('li');
-    li.textContent = text;
-    
-    const btn = document.createElement('button');
-    li.appendChild(btn);
-    btn.innerHTML = '<i class="far fa-minus-square"></i>';
-    btn.addEventListener('click', () =>{
-        li.remove();
-    });
+    // li.textContent = text;
+    li.setAttribute('data-id', id);
 
+    // const btn = document.createElement('button');
+    // li.appendChild(btn);
+    li.innerHTML = `${text}<button><i class="far fa-minus-square" data-id=${id}></i></button>`;
+    // btn.innerHTML = '<i class="far fa-minus-square"></i>';
+    id++;
     return li;
 }
 
@@ -39,5 +38,13 @@ addBtn.addEventListener('click', ()=> {
 input.addEventListener('keypress', event => {
     if(event.key === 'Enter'){
         pushList();
+    }
+});
+
+ul.addEventListener('click', (e) =>{
+    const id = e.target.dataset.id;
+    if(id){
+        const deletedItem = document.querySelector(`.list-content li[data-id="${id}"]`);
+        deletedItem.remove();
     }
 });
