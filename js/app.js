@@ -5,12 +5,12 @@ const input = document.querySelector('input');
 const addBtn = document.querySelector('.btn button');
 
 function pushList(){
-    const text = input.value;
-    if(text === ""){
+    const textValue = input.value;
+    if(textValue === ""){
         input.focus();
         return;
     }
-    const item = createItem(text);
+    const item = createItem(textValue);
     ul.appendChild(item);
     item.scrollIntoView({block: "center"});
     input.value = "";
@@ -18,14 +18,14 @@ function pushList(){
 };
 
 let id = 0;
-function createItem(text){
+function createItem(textValue){
     const li = document.createElement('li');
     // li.textContent = text;
     li.setAttribute('data-id', id);
 
     // const btn = document.createElement('button');
     // li.appendChild(btn);
-    li.innerHTML = `${text}<button><i class="far fa-minus-square" data-id=${id}></i></button>`;
+    li.innerHTML = `<div class="item_row">${textValue}<button class="delete_btn" data-id=${id}><i class="far fa-minus-square" data-id=${id}></i></button></div>`;
     // btn.innerHTML = '<i class="far fa-minus-square"></i>';
     id++;
     return li;
@@ -42,8 +42,10 @@ input.addEventListener('keypress', event => {
 });
 
 ul.addEventListener('click', (e) =>{
-    const id = e.target.dataset.id;
-    if(id){
+    console.log(e.target);
+    const target = e.target;
+    const id = target.dataset.id;
+    if(id || target.matches('.delete_btn')){
         const deletedItem = document.querySelector(`.list-content li[data-id="${id}"]`);
         deletedItem.remove();
     }
